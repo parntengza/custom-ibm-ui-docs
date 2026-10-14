@@ -1,0 +1,29 @@
+import{C as e,Ct as t,F as n,G as r,K as i,M as a,R as o,V as s,W as c,_t as l,bt as u,dt as d,h as f,ht as p,j as m,mt as h,pt as g,q as _,tt as v,w as y,x as b}from"./theme-switcher-BKi8EfZd.js";var x=class extends y{constructor(...e){super(...e),this.label=``,this.localize=new b(this),this.hideLabel=!1,this.helperText=``,this.required=!1,this.requiredText=``,this.invalid=!1,this.invalidText=``,this.warn=!1,this.warnText=``,this.disabled=!1,this.readonly=!1,this.orientation=`vertical`,this.touched=!1,this.checkedCount=0,this.fieldsetDisabled=!1,this.internals=this.attachInternals(),this.customValidityMessage=``,this.groupId=v(`ui-checkbox-group`),this.onChange=()=>{this.touched=!0,this.recount()},this.onFocusOut=e=>{this.contains(e.relatedTarget)||(this.touched=!0)},this.onFormInvalid=e=>{e.preventDefault(),this.touched=!0,this.form?.querySelector(`:invalid`)===this&&this.focus()},this.slots=new f(this)}static{this.formAssociated=!0}static{this.styles=[n,t`
+            :host {
+                display: block;
+                font-family: var(--ui-font-family);
+            }
+
+            .options {
+                display: flex;
+                flex-direction: column;
+            }
+
+            :host([orientation='horizontal']) .options {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: var(--ui-space-md);
+            }
+        `]}setCustomValidity(e){this.customValidityMessage=e,this.hasUpdated&&(this.syncValidity(),this.requestUpdate())}connectedCallback(){super.connectedCallback(),this.addEventListener(`change`,this.onChange),this.addEventListener(`focusout`,this.onFocusOut),this.addEventListener(`invalid`,this.onFormInvalid)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener(`change`,this.onChange),this.removeEventListener(`focusout`,this.onFocusOut),this.removeEventListener(`invalid`,this.onFormInvalid)}get form(){return this.internals.form}get validationMessage(){return this.internals.validationMessage}get willValidate(){return this.internals.willValidate}get labels(){return this.internals.labels}reportValidity(){return this.internals.reportValidity()}get validity(){return this.internals.validity}checkValidity(){return this.internals.checkValidity()}focus(e){this.boxes[0]?.focus(e)}formResetCallback(){this.touched=!1,queueMicrotask(()=>this.recount())}formDisabledCallback(e){this.fieldsetDisabled=e}get isDisabled(){return this.disabled||this.fieldsetDisabled||o(this)}get interactive(){return!this.isDisabled&&!this.readonly}get showError(){return this.interactive?this.invalid||this.touched&&(!!this.customValidityMessage||this.required&&this.checkedCount===0):!1}willUpdate(){this.recount()}updated(){this.syncBoxes(),this.syncValidity(),this.syncHostState()}syncHostState(){this.toggleAttribute(`data-show-error`,this.shownKind===`error`),this.toggleAttribute(`data-show-warn`,this.shownKind===`warn`)}syncValidity(){if(m(this.internals,this.isDisabled))return;let e=this.boxes[0],t=a(this.invalid,this.invalidText,this.customValidityMessage);t?this.internals.setValidity({customError:!0},t,e):this.required&&this.checkedCount===0&&!this.isDisabled?this.internals.setValidity({valueMissing:!0},this.invalidText||this.requiredText||this.localize.t.field.requiredAtLeastOne,e):this.internals.setValidity({})}recount(){this.checkedCount=this.boxes.filter(e=>e.checked).length}get errorText(){return this.invalidText||this.querySelector(`[slot="invalid-text"]`)?.textContent?.trim()||this.requiredText||this.localize.t.field.requiredAtLeastOne}syncBoxes(){let e=this.showError;for(let t of this.boxes)t.groupDisabled=this.isDisabled,t.groupReadonly=this.readonly,t.toggleAttribute(`data-group-invalid`,e),t.groupMessage=e?this.errorText:``}onSlotChange(){this.recount(),this.syncBoxes()}renderLabel(){return!this.label&&!this.slots.has(`label`)?l:u`<div class=${this.hideLabel?`sr-only`:`label`} part="label" id="${this.groupId}-label">${i(this.label)}</div>`}render(){let e=this.showError,t=r({showError:e,errorText:c(this.invalid,this.customValidityMessage,this.invalidText||this.requiredText||this.localize.t.field.requiredAtLeastOne),showWarn:this.warn&&this.interactive,warnText:this.warnText,helperText:this.helperText,slots:this.slots});return this.shownKind=t?.kind,u`
+            ${this.renderLabel()}
+            <div
+                class="options"
+                part="base"
+                role="group"
+                aria-labelledby=${this.label||this.slots.has(`label`)?`${this.groupId}-label`:l}
+                aria-describedby=${s(this.groupId,t)??l}
+            >
+                <slot @slotchange=${this.onSlotChange}></slot>
+            </div>
+            ${_(this.groupId,t,!0)}
+        `}};e([h()],x.prototype,`label`,void 0),e([h({type:Boolean,attribute:`hide-label`})],x.prototype,`hideLabel`,void 0),e([h({attribute:`helper-text`})],x.prototype,`helperText`,void 0),e([h({type:Boolean,reflect:!0})],x.prototype,`required`,void 0),e([h({attribute:`required-text`})],x.prototype,`requiredText`,void 0),e([h({type:Boolean,reflect:!0})],x.prototype,`invalid`,void 0),e([h({attribute:`invalid-text`})],x.prototype,`invalidText`,void 0),e([h({type:Boolean,reflect:!0})],x.prototype,`warn`,void 0),e([h({attribute:`warn-text`})],x.prototype,`warnText`,void 0),e([h({type:Boolean,reflect:!0})],x.prototype,`disabled`,void 0),e([h({type:Boolean,reflect:!0})],x.prototype,`readonly`,void 0),e([h({reflect:!0})],x.prototype,`orientation`,void 0),e([g()],x.prototype,`touched`,void 0),e([g()],x.prototype,`checkedCount`,void 0),e([g()],x.prototype,`fieldsetDisabled`,void 0),e([d({selector:`ui-checkbox, ui-selectable-tile`})],x.prototype,`boxes`,void 0),x=e([p(`ui-checkbox-group`)],x);

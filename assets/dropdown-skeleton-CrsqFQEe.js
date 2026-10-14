@@ -1,0 +1,1 @@
+import{C as e,ht as t}from"./theme-switcher-BKi8EfZd.js";import{t as n}from"./skeleton-CJ3-DC_A.js";var r=class extends n{};r=e([t(`ui-dropdown-skeleton`)],r);
